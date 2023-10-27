@@ -1,0 +1,81 @@
+= CloudBees action: Scan with Mend SAST
+
+Use this action to scan a Git repository with the Mend static application security testing (SAST) scanner, which detects security flaws and provides suggested code fixes.
+
+== Inputs
+
+[cols="2a,1a,1a,3a",options="header"]
+.Input details
+|===
+
+| Input name
+| Data type
+| Required?
+| Description
+
+| `server-url`
+| String
+| Yes
+| The Mend server URL.
+
+| `token`
+| String
+| Yes
+| The Mend client secret.
+
+| `language`
+| String
+| No
+| The language of your Git repository code base.
+Refer to the supported languages below.
+
+|===
+
+== Supported languages
+
+[cols="1a,1a",options="header"]
+.Supported languages with inputs
+|===
+
+| Supported language
+| Input format
+
+| Go
+| `LANGUAGE_GO`
+
+| Java
+| `LANGUAGE_JAVA`
+
+| JavaScript
+| `LANGUAGE_JS`
+
+| Python
+| `LANGUAGE_Python`
+
+|===
+
+== Usage example
+
+In your YAML file, add:
+
+[source,yaml]
+----
+
+      - name: Scan with Mend SAST
+        uses: cloudbees-io/mend-sast-scan-code@v1
+        with:
+          server-url: ${{ vars.MEND_SERVER_URL }}
+          token: ${{ secrets.MEND_SECRET }}
+          language: "LANGUAGE_PYTHON"
+
+----
+
+== License
+
+This code is made available under the 
+link:https://opensource.org/license/mit/[MIT license].
+
+== References
+
+* Learn more about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform-actions/latest/[using actions in CloudBees workflows].
+* Learn about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform/latest/[the CloudBees platform].
