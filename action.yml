@@ -13,7 +13,7 @@ runs:
   steps:
     - id: run-orchestrator
       name: mendsast
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/mend-sast-actions:main-c70bc56b24ce9c2eaca8ab9ed4a14f36c6fc0fbc
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/mend-sast-actions:main-bc43947d6818a17fff612044449ad7031046e99d
       shell: bash
       env:
         RUN_ID: ${{ cloudbees.run_id }}
