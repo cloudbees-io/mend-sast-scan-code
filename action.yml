@@ -13,7 +13,8 @@ runs:
   steps:
     - id: run-orchestrator
       name: mendsast
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/mend-sast-actions:main-ef15505250f70e6b6ef15f441d3e2606cbfc9537
+      # latest image
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/mend-sast-actions:main-183874b831d7445629b6870d5d204fcab82bd0e6
       shell: bash
       env:
         RUN_ID: ${{ cloudbees.run_id }}
@@ -23,9 +24,6 @@ runs:
         JWT_TOKEN: ${{ cloudbees.api.token }}
       run: |
         set -x
-
-        apt-get update
-        apt-get install -y git
         
         echo "RUN ID: ${{ cloudbees.run_id }}"
         echo "Job ID: ${{ job.id }}"
