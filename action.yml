@@ -14,7 +14,7 @@ runs:
     - id: run-orchestrator
       name: mendsast
       # latest image
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/mend-sast-actions:main-e5af92ced1422f4501820ad0fb6f5a9aa267c810
+      uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/mend-sast-actions:CBP-21415-b9047e2b945af547c89cd9e64666a5e227a0d490
       shell: bash
       env:
         RUN_ID: ${{ cloudbees.run_id }}
